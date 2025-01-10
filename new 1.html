@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="przykładowa strona">
+    <meta name="keywords" content="cosinus, klasa 2tc">
+    <title>Strona główna</title>
+    <style>
+        /* Animacje */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Stosowanie animacji */
+        header {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        nav ul {
+            animation: slideIn 1s ease-out;
+        }
+
+        section h2 {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        section table {
+            animation: slideIn 1s ease-in-out;
+        }
+
+        section img {
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        form input[type="submit"] {
+            animation: bounce 1s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Witaj na mojej stronie</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Strona główna</a></li>
+                <li><a href="#">O nas</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tekst w sekcji 1</h2>
+            <p>tekst nr 1</p>
+            <p>tekst nr 2</p>
+            <p>tekst nr 3</p>
+
+            <div>Lorem input 1</div>
+            <div>Lorem input 2</div>
+            <div>Lorem input 3</div>
+
+            <h1 style="color: red;">Nagłówek H1</h1>
+            <h2 style="color: red;">Nagłówek H2</h2>
+            <h3>Nagłówek H3</h3>
+            <h4>Nagłówek H4</h4>
+
+            <!-- Formularz kontaktowy -->
+            <section>
+                <h2>Formularz Kontaktowy</h2>
+                <form action="/submit_form" method="post">
+                    <label for="name">Imię:</label>
+                    <input type="text" id="name" name="name" required><br><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+
+                    <label for="message">Wiadomość:</label><br>
+                    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                    <input type="submit" value="Wyślij">
+                </form>
+            </section>
+
+            <!-- Tabela -->
+            <section>
+                <h2>Prosta Tabela</h2>
+                <table border="1">
+                    <tr>
+                        <th>Imię</th>
+                        <th>Wiek</th>
+                        <th>Miasto</th>
+                    </tr>
+                    <tr>
+                        <td>Jan</td>
+                        <td>25</td>
+                        <td>Warszawa</td>
+                    </tr>
+                    <tr>
+                        <td>Agnieszka</td>
+                        <td>30</td>
+                        <td>Kraków</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Zdjęcie -->
+            <section>
+                <h2>Nasze zdjęcie</h2>
+                <img src="https://via.placeholder.com/300" alt="Przykładowe zdjęcie" />
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Moja strona</p>
+    </footer>
+</body>
+
+</html>
