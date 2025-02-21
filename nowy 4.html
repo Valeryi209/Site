@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona z Sliderem</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Верхний бар */
+        .top-bar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .top-bar a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        /* Заголовок */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+        .search {
+            flex-grow: 1;
+            margin: 0 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        /* Слайдер */
+        .swiper-container {
+            width: 100%;
+            height: 400px;
+        }
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        .swiper-slide h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        /* Баннер */
+        .banner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .banner img {
+            width: 300px;
+            height: 50px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .banner button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .banner button:hover {
+            background-color: #e64a19;
+        }
+        /* Преимущества */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 120px;
+        }
+        .feature img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        /* Плавающая кнопка */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .floating-btn:hover {
+            background-color: #e64a19;
+        }
+
+        /* Медиа-запросы для мобильных устройств (max-width: 991px) */
+        @media (max-width: 991px) {
+            /* Уменьшаем высоту слайдера */
+            .swiper-container {
+                height: 300px;
+            }
+
+            /* Уменьшаем размер текста на слайдах */
+            .swiper-slide h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+			/* Изменяем размер баннера */
+            .banner img {
+                width: 200px;
+                height: 30px;
+            }
+
+            /* Уменьшаем размер кнопки в баннере */
+            .banner button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            /* Изменяем заголовок */
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo {
+                width: 80px;
+            }
+
+            .search {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            /* Изменяем блок с преимуществами */
+            .features {
+                flex-direction: column;
+            }
+
+            .feature {
+                margin-bottom: 15px;
+            }
+
+            .feature img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .feature p {
+                font-size: 14px;
+            }
+
+            /* Изменяем позицию плавающей кнопки */
+            .floating-btn {
+                bottom: 10px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Верхний информационный бар -->
+    <div class="top-bar">
+        <a href="tel:+48123456789">+48 123 456 789</a>
+        <a href="mailto:info@example.com">info@example.com</a>
+    </div>
+    <!-- Заголовок -->
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="Logo" class="logo">
+        <input type="text" placeholder="Wyszukaj..." class="search">
+        <div class="user"><img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User"></div>
+        <div class="cart"><img src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart.png" alt="Cart"></div>
+    </div>
+    <!-- Слайдер -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Slajd 1 -->
+            <div class="swiper-slide" style="background-image: url(pexels-cadu-mello-1882954-30785015.jpg);">
+                <h2>Tekst na slajdzie 1</h2>
+                <div class="banner">
+                    <img src="https://via.placeholder.com/150x50?text=Baner+1" alt="Baner 1">
+                    <button>Przycisk 1</button>
+                </div>
+            </div>
+            <!-- Slajd 2 -->
+            <div class="swiper-slide" style="background-image: url(pexels-syd-trgt-335495720-30509107.jpg);">
+                <h2>Tekst na slajdzie 2</h2>
+                <div class="banner">
+                    <img src="https://via.placeholder.com/150x50?text=Baner+2" alt="Baner 2">
+                    <button>Przycisk 2</button>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <!-- Блок с преимуществами -->
+    <div class="features">
+        <div class="feature">
+            <img src="https://img.icons8.com/color/48/000000/delivery.png" alt="Szybka dostawa">
+            <p>Szybka dostawa</p>
+        </div>
+        <div class="feature">
+            <img src="https://img.icons8.com/color/48/000000/guarantee.png" alt="Gwarancja jakości">
+            <p>Gwarancja jakości</p>
+        </div>
+    </div>
+    <!-- Плавающая кнопка -->
+    <button class="floating-btn">?</button>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Инициализация слайдера
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+				},
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+        // Обработчик нажатия плавающей кнопки
+        document.querySelector('.floating-btn').addEventListener('click', function() {
+            alert('Kliknięto przycisk!');
+        });
+    </script>
+</body>
+</html>
